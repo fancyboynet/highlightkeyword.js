@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>highlightkeyword</title>
+    <style>
+        dt{
+            margin: 2em 0 1em;
+        }
+        .highlight{
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <dl>
+        <dt>Base use:</dt>
+        <dd>
+            <div id="test">
+                <div>The quick brown fox jumps over the lazy dog</div>
+                <div>Grumpy wizards <span>make</span> toxic brew for the evil Queen and Jack.</div>
+            </div>
+        </dd>
+        <dt>Custom color:</dt>
+        <dd>
+            <div id="test2">
+
+            </div>
+        </dd>
+        <dt>Custom className:</dt>
+        <dd>
+            <div id="test3">
+
+            </div>
+        </dd>
+    </dl>
+
+<script src="highlightkeyword.js"></script>
+<script>
+    var oldHTML = document.getElementById('test').innerHTML;
+    highlightkeyword(document.getElementById('test'), 'f');
+    document.getElementById('test2').innerHTML = highlightkeyword(oldHTML, ['f', 'o', 't'], {
+        color : 'blue'
+    });
+    document.getElementById('test3').innerHTML = highlightkeyword(oldHTML, ['t', 'b'], {
+        className : 'highlight'
+    });
+</script>
+</body>
+</html>
